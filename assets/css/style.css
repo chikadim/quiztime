@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&family=Nunito:wght@700;900&display=swap');
+
+/* reset styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all .2s linear;
+    font-family: 'Averia Serif Libre', cursive;
+}
+
+body {
+    color: white;
+}
+
+.header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    padding: 40px 10%;
+}
+
+.logo {
+    font-size: 22px;
+    color: #f5e4e5;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    letter-spacing: 5px;
+    filter: drop-shadow(0 0 5px #09001d);
+}
+
+.navbar a {
+    font-size: 12px;
+    color: #59201B;
+    margin-left: 2px;
+    background-color: #f5e4e5;
+    padding: 5px 20px;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    background-color: #59201B;
+    color:#f5e4e5;
+}
+
+.main {
+    background: url('../imgs/background-img.jpeg') no-repeat;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.welcome-text {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-text-content {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
