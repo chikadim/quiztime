@@ -13,7 +13,7 @@
 }
 
 body {
-    color: white;
+    color:#f5e4e5;
 }
 
 .header {
@@ -73,4 +73,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.welcome-text-content h1 {
+    font-size: 40px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.welcome-text-content .start-button {
+    margin-top: 30px;
+    height: 30px;
+    width: 190px;
+    border-radius: 6px;
+    background-color: #f5e4e5;
+    color:#59201B;
+    cursor: pointer;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.welcome-text-content .start-button:hover {
+    background-color: #fff;
 }
