@@ -147,7 +147,7 @@ body {
 }
 
 .instruction-list {
-    background-color:#f5e4e5;
+    background-color:#F3EED9;
     font-size: 12px;
     padding: 20px 20px;
 }
@@ -168,17 +168,17 @@ body {
 
 .instruction .button-group .info-button {
     width: 190px;
-    height: 30px;
+    height: 40px;
     font-size: 12px;
     background-color: #59201B;
-    color:#f5e4e5;
+    color:#F3EED9;
     text-transform: capitalize;
     border-radius: 6px;
     cursor: pointer;
 }
 
 .instruction .button-group .info-button:hover {
-    background-color: #f5e4e5;
+    background-color: #F3EED9;
     color: #59201B;
     transition: .5s;
 }
@@ -208,6 +208,17 @@ body {
     display: flex;
     flex-direction: column;
     width: 500px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
+}
+
+.quiz-section .quiz-box.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: 1s ease;
+    transition-delay: 1s;
 }
 
 .quiz-box .user-block {
@@ -298,8 +309,7 @@ body {
 }
 
 .answer-block button:hover {
-    background-color: #F3EED9;
-    color:#59201B
+    background-color: #8c493e;
 }
 
 .skip-block {
@@ -320,6 +330,5 @@ body {
     transition: .3s;
 }
 .skip-block button:hover {
-    background-color: #F3EED9;
-    color:#59201B
+    background-color: #8c493e;
 }

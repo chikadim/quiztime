@@ -1,7 +1,7 @@
 let questions = [
     {
         numb: 1,
-        questions: "What is dabbing?",
+        question: "What is dabbing?",
         answer: "C. A dance",
         options: [
             "A. A medical procedure",
@@ -12,7 +12,7 @@ let questions = [
     },
     {
         numb: 2,
-        questions: "What is the name of Poland in Polish?",
+        question: "What is the name of Poland in Polish?",
         answer: "B. Polska",
         options: [
             "A. Pupcia",
@@ -23,7 +23,7 @@ let questions = [
     },
     {
         numb: 3,
-        questions: "Who is the author of Jurrasic Park?",
+        question: "Who is the author of Jurrasic Park?",
         answer: "D. Michael Crichton",
         options: [
             "A. Peter Benchley",
@@ -34,7 +34,7 @@ let questions = [
     },
     {
         numb: 4,
-        questions: "What is the official language of Brazil?",
+        question: "What is the official language of Brazil?",
         answer: "B. Portugese",
         options: [
             "A. Brazilian",
@@ -45,7 +45,7 @@ let questions = [
     },
     {
         numb: 5,
-        questions: "Carcassonne is based on which French town?",
+        question: "Carcassonne is based on which French town?",
         answer: "Carcassonne",
         options: [
             "A. Paris",
