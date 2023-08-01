@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&family=Nunito:wght@700;900&display=swap');
 
 /* reset styles */
-
 * {
     margin: 0;
     padding: 0;
@@ -27,16 +26,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 900;
     padding: 40px 10%;
 }
 
 .logo {
     font-size: 22px;
-    color: #f5e4e5;
+    color: #F3EED9;
     font-family: 'Nunito', sans-serif;
     font-weight: 900;
-    letter-spacing: 5px;
+    letter-spacing: 9px;
     filter: drop-shadow(0 0 5px #09001d);
 }
 
@@ -48,14 +47,15 @@ body {
     font-size: 12px;
     color: #59201B;
     margin-left: 2px;
-    background-color: #f5e4e5;
-    padding: 5px 20px;
+    background-color: #F3EED9;
+    padding: 10px 30px;
     border-radius: 4px;
     transition: .5s;
 }
 
 .navbar a:hover {
-    background-color: #F3EED9;
+    background-color: #59201B;
+    color: #F3EED9;
 }
 
 .main-section {
@@ -95,25 +95,28 @@ body {
 }
 
 .welcome-text-content h1 {
-    font-size: 40px;
+    font-size: 60px;
     font-family: 'Nunito', sans-serif;
+    color: #F3EED9;
 }
 
 .welcome-text-content .start-button {
     margin-top: 30px;
-    height: 30px;
-    width: 190px;
-    border-radius: 6px;
-    background-color: #f5e4e5;
+    height: 45px;
+    width: 220px;
+    border-radius: 8px;
+    background-color: #F3EED9;
     color:#59201B;
     cursor: pointer;
     letter-spacing: 1px;
     outline: none;
     transition: .5s;
+    font-size: 16px;
 }
 
 .welcome-text-content .start-button:hover {
-    background-color: #F3EED9;
+    background-color: #59201B;
+    color: #F3EED9;
 }
 
 .instruction {
@@ -182,15 +185,141 @@ body {
 
 .quiz-section {
     position: relative;
-    /*left: -50%;*/
-    left: 0;
+    left: -50%;
+    /*left: 0;*/
     width: 100%;
-    background-color: sienna;
+    display: flex;
+    justify-content: center;
+    background: url('../imgs/background-img.webp') no-repeat;
+    background-position: center;
+    background-size: cover;
     transition: .8s ease-in-out;
     transition-delay: .25s;
     z-index: 100;
+    padding-top: 250px;
 }
 
 .quiz-section.active {
     left: 0;
+}
+
+.quiz-section .quiz-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.quiz-box .user-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F3EED9;
+    border-radius: 6px;
+    padding: 20px 20px;
+    color:#59201B;
+}
+
+.quiz-box .user-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #59201B;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.quiz-box .category-block {
+    padding: 40px 0 20px 0;
+}
+
+.quiz-box .category-block h1 {
+    font-size: 16px;
+    padding-bottom: 7px;
+}
+
+.category-block .categories {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #F3EED9;
+    color: #F3EED9;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.quiz-box .question-block {
+    background-color: #F3EED9;
+    padding: 30px 20px;
+    border-radius: 6px;
+}
+
+.quiz-box .question-block p {
+    color:#59201B;
+    padding-bottom: 10px;
+    font-weight: 900;
+}
+
+.question-block .answer-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.answer-options {
+    display: flex;
+    justify-content: space-between;
+    color:#59201B;
+}
+
+.answer-options span {
+    border: 1px solid #59201B;
+    font-size: 12px;
+    min-height: 35px;
+    display: inline-flex;
+    align-items: center;
+    width: 220px;
+    border-radius: 6px;
+    padding-left: 4px;
+}
+
+.answer-block button {
+    background-color: #59201B;
+    color:#f5e4e5;
+    letter-spacing: 2px;
+    padding: 12px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .3s;
+
+}
+
+.answer-block button:hover {
+    background-color: #F3EED9;
+    color:#59201B
+}
+
+.skip-block {
+    background-color: #F3EED9;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.skip-block button {
+    padding: 12px 0;
+    width: 220px;
+    background-color: #59201B;
+    color: #f5e4e5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .3s;
+}
+.skip-block button:hover {
+    background-color: #F3EED9;
+    color:#59201B
 }

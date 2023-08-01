@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizTime</title>
+
+    <script src="https://kit.fontawesome.com/c558fcc75e.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="assets/css/style.css">
+    <title>QuizTime</title>
 </head>
 <body>
     <main class="main-section">
@@ -21,26 +24,29 @@
             <section class="quiz-section">
                 <div class="quiz-box">
                     <div class="user-block">
-                        <div class="username">Jane Doe</div>
-                        <div class="user-score">0 / 5</div>
+                        <span class="username">Jane Doe</span>
+                        <span class="user-score">0/5</span>
                     </div>
 
                     <div class="category-block">
                         <h1>Select a category</h1>
-                        <input type="text">
+                        <div class="categories">
+                            <span>General Knowledge</span>
+                            <span><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
                     </div>
 
                     <div class="question-block">
-                        <p>What is officia color of Germany?</p>
+                        <p>What is the official color of Germany?</p>
                         <div class="answer-block">
-                            <div id="top-inputs">
-                                <input type="text">
-                                <input type="text">
+                            <div class="answer-options">
+                                <span>A. Green and White</span>
+                                <span>B. Black, Red and Yellow</span>
                             </div>
 
-                            <div id="lower-inputs">
-                                <input type="text">
-                                <input type="text">
+                            <div class="answer-options">
+                                <span>C. Red and Blue</span>
+                                <span>D. Black, Red and Gold</span>
                             </div>
 
                             <button>Next Question</button>
@@ -48,7 +54,7 @@
                     </div>
 
                     <div class="skip-block">
-                        <button>1/10</button>
+                        <button>1/5</button>
                         <button>Skip</button>
                     </div>
                 </div>
