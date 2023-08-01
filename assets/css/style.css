@@ -295,6 +295,24 @@ body {
     width: 220px;
     border-radius: 6px;
     padding-left: 4px;
+    cursor: pointer;
+}
+
+.answer-options .answers.correct {
+    background: #F3EED9;
+    color:green;
+    border: 2px solid rgb(18, 244, 18);
+}
+
+.answer-options .answers.incorrect {
+    background: #F3EED9;
+    color:rgb(131, 2, 2);
+    border: 2px solid rgb(220, 32, 15);;
+}
+
+.answer-options span:hover{
+    background-color: #8c493e;
+    color:#F3EED9;
 }
 
 .answer-block button {
@@ -318,6 +336,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px 20px;
+    border-radius: 6px;
 }
 
 .skip-block button {

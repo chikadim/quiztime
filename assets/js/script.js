@@ -67,6 +67,18 @@ function showQuestions(index) {
     }
 }
 
+function optionSelected(answer) {
+    let userAnswer = answer.textContent;
+    let correctAnswer = questions[questionCount].answer;
+
+    if (userAnswer == correctAnswer) {
+        answer.classList.add('correct');
+    }
+    else {
+        answer.classList.add('incorrect');
+    }
+}
+
 function questionCounter(index) {
     const questionTotal = document.querySelector('.question-total');
     questionTotal.textContent = `${index} of ${questions.length} Questions`;
