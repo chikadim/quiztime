@@ -56,8 +56,8 @@ body {
     background-color: #F3EED9;
 }
 
-.main {
-    background: url('../imgs/background-img.jpeg') no-repeat;
+.main-section {
+    background: url('../imgs/background-img.webp') no-repeat;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
