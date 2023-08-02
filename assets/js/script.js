@@ -47,6 +47,7 @@ nextButton.onclick = () => {
 
 const answerOptionsTop = document.querySelector('.top');
 const answerOptionsBelow = document.querySelector('.below');
+const answerOptions = document.querySelector('.answer-options');
 
 // getting questions and options from array
 function showQuestions(index) {
@@ -70,12 +71,29 @@ function showQuestions(index) {
 function optionSelected(answer) {
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionCount].answer;
+    let allOptions = answerOptions.children.length;
+
 
     if (userAnswer == correctAnswer) {
         answer.classList.add('correct');
     }
     else {
         answer.classList.add('incorrect');
+
+        // if answer incorrect, auto selected correct answer
+        for (let i = 0; i < allOptions; i++) {
+            if(answerOptionsTop.children[i].textContent == correctAnswer) {
+                answerOptionsTop.children[i].setAttribute('class', 'answers correct');
+            }
+            else if(answerOptionsBelow.children[i].textContent == correctAnswer) {
+                answerOptionsBelow.children[i].setAttribute('class', 'answers correct');
+            }
+        }
+    }
+
+    for (let i = 0; i < allOptions; i++) {
+        answerOptionsTop.children[i].classList.add('disabled');
+        answerOptionsBelow.children[i].classList.add('disabled');
     }
 }
 
