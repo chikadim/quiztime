@@ -11,6 +11,10 @@
     font-family: 'Averia Serif Libre', cursive;
 }
 
+html {
+    overflow: auto;
+}
+
 body {
     color:#f5e4e5;
     background-color: #59201B;
@@ -26,7 +30,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 900;
+    z-index: 200;
     padding: 40px 10%;
 }
 
@@ -121,12 +125,12 @@ body {
 
 .instruction {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%) scale(.9);
     border-radius: 6px;
     width: 450px;
-    padding: 10px 50px;
+    padding: 0px 50px;
     opacity: 0;
     pointer-events: none;
     transition: .5s;
@@ -149,13 +153,13 @@ body {
 .instruction-list {
     background-color:#F3EED9;
     font-size: 12px;
-    padding: 20px 20px;
+    padding: 40px 20px;
 }
 
 .instruction .info {
     display: block;
     color:#59201B;
-    margin: 10px 0;
+    padding: 10px 0;
 }
 
 .instruction .button-group {
@@ -164,6 +168,7 @@ body {
     gap: 10px;
     align-items: center;
     padding: 10px 0;
+    margin-top: 10px;
 }
 
 .instruction .button-group .info-button {
@@ -424,3 +429,30 @@ body {
 .result-box .buttons .btn:hover {
     background-color: #8c493e;
 }
+
+/**
+media query starts
+**/
+
+@media only screen and (max-width: 768px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 70px 0%;
+    }
+
+    .logo {
+        align-items: center;
+    }
+
+    .navbar {
+        padding-top: 40px;
+    }
+
+    .navbar a {
+        padding: 10px 45px;
+    }
+
+    
+} 

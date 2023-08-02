@@ -46,12 +46,12 @@ let questions = [
     {
         numb: 5,
         question: "Carcassonne is based on which French town?",
-        answer: "Carcassonne",
+        answer: "C. Carcassonne",
         options: [
             "A. Paris",
             "B. Marseille",
             "C. Carcassonne",
             "D. Clermont-Ferrand"
         ]
-    }
+    },
 ];
