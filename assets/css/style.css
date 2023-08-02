@@ -451,7 +451,7 @@ media query starts
     }
 
     .navbar a {
-        padding: 10px 45px;
+        padding: 10px 52px;
     }
 
     .welcome-text-content {
@@ -472,16 +472,57 @@ media query starts
     }
     
     .welcome-text-content .start-button {
-        margin-top: 30px;
-        height: 45px;
         width: 285px;
-        border-radius: 8px;
+    }
+
+    .quiz-section .quiz-box {
+        width: 300px;
+    }
+
+    .question-block .answer-block {
+        gap: 0px;
+    }
+    
+    .answer-options {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0px;
+    }
+    
+    .answer-options span {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .answer-block button {
+        margin-top: 10px;
+    
+    }
+
+    .skip-block {
+        background-color: transparent;
+        padding: 0px 0px;
+        gap: 10px;
+    }
+    
+    .skip-block button {
         background-color: #F3EED9;
-        color:#59201B;
-        cursor: pointer;
-        letter-spacing: 1px;
-        outline: none;
-        transition: .5s;
-        font-size: 16px;
+        color: #59201B;
+    }
+
+    .quiz-section .result-box {
+        width: 300px;
+    }
+
+    .result-box .buttons {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .result-box .buttons .btn {
+        width: 210px;
+        padding: 10px 0;
+        margin-top: 10px;
     }
 } 
