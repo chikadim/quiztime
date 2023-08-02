@@ -6,6 +6,7 @@ const playNowButton = document.querySelector('.play-now-button');
 const quizSection = document.querySelector('.quiz-section');
 const welcomeText = document.querySelector('.welcome-text');
 const quizBox = document.querySelector('.quiz-box');
+const resultBox = document.querySelector('.result-box');
 
 startButton.onclick = () => {
     instruction.classList.add('active');
@@ -25,10 +26,12 @@ playNowButton.onclick = () => {
 
     showQuestions(0);
     questionCounter(1);
+    scoreCount();
 }
 
 let questionCount = 0;
 let questionNumb = 1;
+let userScore = 0;
 
 const nextButton = document.querySelector('.next-button');
 
@@ -41,7 +44,7 @@ nextButton.onclick = () => {
         questionCounter(questionNumb);
     }
     else {
-        console.log("Question completed");
+        showResultBox();
     }
 }
 
@@ -76,6 +79,8 @@ function optionSelected(answer) {
 
     if (userAnswer == correctAnswer) {
         answer.classList.add('correct');
+        userScore += 1;
+        scoreCount();
     }
     else {
         answer.classList.add('incorrect');
@@ -102,4 +107,31 @@ function questionCounter(index) {
     questionTotal.textContent = `${index} of ${questions.length} Questions`;
 }
 
+function scoreCount() {
+    const scoreText = document.querySelector('.user-score');
+    scoreText.textContent = `${userScore} / ${questions.length}`;
+}
+
+function showResultBox() {
+    quizBox.classList.remove('active');
+    resultBox.classList.add('active');
+
+    const resultScoreText = document.querySelector('.result-score-text');
+    resultScoreText.textContent = `You got ${userScore} / ${questions.length}`
+
+    const progressValue = document.querySelector('.progress-value');
+    let progressStartValue = 0;
+    let progressEndValue = (userScore / questions.length) * 100;
+    let speed = 20;
+
+    let progress = setInterval(() => {
+        progressStartValue++;
+
+        //console.log(progressStartValue);
+        progressValue.textContent = `${progressStartValue}%`;
+        if (progressStartValue == progressEndValue) {
+            clearInterval(progress);
+        }
+    }, speed);
+}
     
