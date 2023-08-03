@@ -200,7 +200,7 @@ body {
     transition: .8s ease-in-out;
     transition-delay: .25s;
     z-index: 100;
-    padding-top: 250px;
+    padding-top: 200px;
 }
 
 .quiz-section.active {
@@ -431,7 +431,7 @@ body {
 }
 
 /**
-media query starts
+media query (max-width: 768) starts
 **/
 
 @media only screen and (max-width: 768px) {
@@ -439,15 +439,17 @@ media query starts
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 70px 0%;
+        align-items: center;
+        text-align: center;
+        padding: 40px 0%;
     }
 
     .logo {
-        align-items: center;
+        text-align: center;
     }
 
     .navbar {
-        padding-top: 40px;
+        padding-top: 20px;
     }
 
     .navbar a {
@@ -524,5 +526,51 @@ media query starts
         width: 210px;
         padding: 10px 0;
         margin-top: 10px;
+    }
+}
+
+/**
+media query (max-width: 768) ends
+**/
+
+
+/**
+media query (max-width: 320) starts
+**/
+
+@media only screen and (max-width: 320px) {
+    .logo {
+        align-items: center;
+    }
+
+    .navbar {
+        padding-top: 20px;
+    }
+
+    .navbar a {
+        padding: 10px 32px;
+    }
+
+    .welcome-text-content {
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .welcome-text-content h1 {
+        font-size: 26px;
+        margin-bottom: 16px;
+    }
+
+    .welcome-text-content p {
+        font-size: 12px;
+    }
+    
+    .welcome-text-content .start-button {
+        width: 285px;
+    }
+
+    .instruction {
+        width: 370px;
+        padding: 0px 50px;
     }
 } 
