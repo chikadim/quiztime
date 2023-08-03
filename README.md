@@ -70,3 +70,63 @@ Mobile View
 ![Wireframes one mobile version](https://chikadim.github.io/quiztime/md_images/wireframes-mobile-version-one.png)
 ![Wireframes two mobile version](https://chikadim.github.io/quiztime/md_images/wireframes-mobile-version-two.png)
 
+
+### Mockup
+
+- __Colors__
+  Main colors use in the project are as follows:
+  - font color: #F3EED9
+  - hover color: #8c493e
+  - primary color: #59201B
+
+  __Fonts__
+  As main fonts i used Averia Serif Libre and Nunito. Then i used sans-serif as alternative.
+ 
+
+- __Images__
+  - I used images from [unsplash.com](www.unsplash.com) and i credited them in the [credits](#credits) section.
+
+Web View
+![Mock Up one web version](https://chikadim.github.io/quiztime/md_images/mock-up-web-version-one.png)
+![Mock Up two web version](https://chikadim.github.io/quiztime/md_images/mock-up-web-version-two.png)
+
+Tablet View
+![Mock Up one tablet version](https://chikadim.github.io/quiztime/md_images/mock-up-tablet-version-one.png)
+![Mock Up two tablet version](https://chikadim.github.io/quiztime/md_images/mock-up-tablet-version-two.png)
+
+Mobile View
+![Mock Up one mobile version](https://chikadim.github.io/quiztime/md_images/mock-up-mobile-version-one.png)
+![Mock Up two mobile version](https://chikadim.github.io/quiztime/md_images/mock-up-mobile-version-two.png)
+
+[Back to table of content](#table-of-content)
+
+
+## Features
+
+This website consists of 4 pages. They are accessible from navigation menu and also from the footer.
+
+### Existing Features
+- __Home page__
+  - The header
+    * The header is featured in the home page, in the quiz page and in the result page and is fully responsive. It includes the logo and the nav bar. The nav bar consists of the sign up and log in buttons
+    ![Header](https://chikadim.github.io/quiztime/md_images/header.png)
+
+
+- __Instruction page__
+  - List of instructions
+    * This contains the instructions or guid on how to play the quiz. The instructions page also has quit and plan now buttons. The quit button takes you back to the home page whereas the instructions page leads you to the quiz page.
+    ![Header](https://chikadim.github.io/quiztime/md_images/instruction-page.png)
+
+- __Quiz page__
+  - User block
+    * The user block shows the username and score of the player.
+  - Category block
+    * Here, the users select the category they want to play.
+  - Question and answer options block
+    * Here, the users get to see the questions and four answer options from which they can choose the correct answer 
+    ![Mockup](md_images/quiz-page.png)
+
+- __Result page__
+  - The result page shows the score of the users and calculates the percentage.
+    * From here the user may decide to go back to the home page or try the game again
+    ![Mockup web version](https://chikadim.github.io/kitchen-equipments-exhibition/md_images/attendee-page.png)
