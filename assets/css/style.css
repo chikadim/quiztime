@@ -224,6 +224,10 @@ body {
     width: 100%;
 }
 
+.username-input-inner .input-container label {
+    color:#59201B;
+}
+
 .input-container .user-input {
     width: 100%;
     height: 35px;
