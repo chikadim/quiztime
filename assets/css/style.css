@@ -69,6 +69,7 @@ body {
     background-position: center;
     pointer-events: auto;
     transition: .3s ease;
+
 }
 
 .main-section.active {
@@ -539,9 +540,6 @@ media query (max-width: 320) starts
 **/
 
 @media only screen and (max-width: 320px) {
-    .header {
-        position: relative;
-    }
 
     .logo {
         align-items: center;
@@ -557,20 +555,10 @@ media query (max-width: 320) starts
 
     .container {
         display: flex;
-        height: auto;
         width: 200%;
     }
 
-    .welcome-text {
-        position: absolute;
-        left: 0%;
-        top: 200px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 900;
-    }
+
 
     .welcome-text-content {
         max-width: 300px;
@@ -590,9 +578,7 @@ media query (max-width: 320) starts
         width: 285px;
     }
 
-    .quiz-section {
-        padding-top: 80px;
-    }
+
 
     .instruction {
         top: 50%;
