@@ -58,7 +58,17 @@ Wireframes sketch and brainstorming
 
 I used figma to bring out the wireframes of the website.
 
+Web View
+![Wireframes one web version](md_images/wireframes-web-version-one.png)
+![Wireframes two web version](md_images/wireframes-web-version-two.png)
 
+Tablet View
+![Wireframes one tablet version](md_images/wireframes-tablet-version-one.png)
+![Wireframes two tablet version](md_images/wireframes-tablet-version-two.png)
+
+Mobile View
+![Wireframes one mobile version](md_images/wireframes-mobile-version-one.png)
+![Wireframes two mobile version](md_images/wireframes-mobile-version-two.png)
 
 
 ### Mockup
@@ -76,7 +86,18 @@ I used figma to bring out the wireframes of the website.
 - __Images__
   - I used images from [unsplash.com](www.unsplash.com) and i credited them in the [credits](#credits) section.
 
+Web View
+![Mock Up one web version](md_images/mock-up-web-version-one.png)
+![Mock Up two web version](md_images/mock-up-web-version-two.png)
 
+
+
+Tablet View
+![Mock Up one tablet version](md_images/mock-up-tablet-version-one.png)
+![Mock Up two tablet version](md_images/mock-up-tablet-version-two.png)
+
+Mobile View
+![Mock Up one mobile version](md_images/mock-up-mobile-version-one.png)
 ![Mock Up two mobile version](md_images/mock-up-mobile-version-two.png)
 
 [Back to table of content](#table-of-content)
