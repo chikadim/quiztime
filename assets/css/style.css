@@ -561,6 +561,17 @@ media query (max-width: 320) starts
         width: 200%;
     }
 
+    .welcome-text {
+        position: absolute;
+        left: 0%;
+        top: 200px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 900;
+    }
+
     .welcome-text-content {
         max-width: 300px;
         text-align: center;
@@ -584,7 +595,8 @@ media query (max-width: 320) starts
     }
 
     .instruction {
-        width: 370px;
-        padding: 0px 50px;
+        top: 50%;
+        width: 300px;
+        padding: 0px 10px;
     }
 } 
