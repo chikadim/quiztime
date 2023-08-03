@@ -4,7 +4,6 @@ const quitButton = document.querySelector('.quit-button');
 const mainSection = document.querySelector('.main-section');
 const playNowButton = document.querySelector('.play-now-button');
 const quizSection = document.querySelector('.quiz-section');
-const welcomeText = document.querySelector('.welcome-text');
 const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
 const homeButton = document.querySelector('.home-btn');

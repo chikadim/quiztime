@@ -200,7 +200,7 @@ body {
     transition: .8s ease-in-out;
     transition-delay: .25s;
     z-index: 100;
-    padding-top: 200px;
+    padding-top: 180px;
 }
 
 .quiz-section.active {
@@ -506,15 +506,10 @@ media query (max-width: 768) starts
     
     }
 
-    .skip-block {
+    .footer-block {
         background-color: transparent;
         padding: 0px 0px;
         gap: 10px;
-    }
-    
-    .skip-block button {
-        background-color: #F3EED9;
-        color: #59201B;
     }
 
     .quiz-section .result-box {
@@ -544,6 +539,10 @@ media query (max-width: 320) starts
 **/
 
 @media only screen and (max-width: 320px) {
+    .header {
+        position: relative;
+    }
+
     .logo {
         align-items: center;
     }
@@ -554,6 +553,12 @@ media query (max-width: 320) starts
 
     .navbar a {
         padding: 10px 32px;
+    }
+
+    .container {
+        display: flex;
+        height: auto;
+        width: 200%;
     }
 
     .welcome-text-content {
@@ -572,6 +577,10 @@ media query (max-width: 320) starts
     
     .welcome-text-content .start-button {
         width: 285px;
+    }
+
+    .quiz-section {
+        padding-top: 80px;
     }
 
     .instruction {
