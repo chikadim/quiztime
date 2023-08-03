@@ -59,13 +59,14 @@ Wireframes sketch and brainstorming
 I used figma to bring out the wireframes of the website.
 
 Web View
-![Wireframes-one web version](https://chikadim.github.io/quiztime/md_images/wireframes-web-version-one.png)
-![Wireframes-two web version](https://chikadim.github.io/quiztime/md_images/wireframes-web-version-two.png)
+![Wireframes one web version](https://chikadim.github.io/quiztime/md_images/wireframes-web-version-one.png)
+![Wireframes two web version](https://chikadim.github.io/quiztime/md_images/wireframes-web-version-two.png)
 
 Tablet View
-![Wireframes-one tablet version](https://chikadim.github.io/quiztime/md_images/wireframes-tablet-version-one.png)
-![Wireframes-two tablet version](https://chikadim.github.io/quiztime/md_images/wireframes-tablet-version-two.png)
+![Wireframes one tablet version](https://chikadim.github.io/quiztime/md_images/wireframes-tablet-version-one.png)
+![Wireframes two tablet version](https://chikadim.github.io/quiztime/md_images/wireframes-tablet-version-two.png)
 
 Mobile View
-![Wireframes-one mobile version](https://chikadim.github.io/quiztime/md_images/wireframes-mobile-version-one.png)
-![Wireframes-two mobile version](https://chikadim.github.io/quiztime/md_images/wireframes-mobile-version-two.png)
+![Wireframes one mobile version](https://chikadim.github.io/quiztime/md_images/wireframes-mobile-version-one.png)
+![Wireframes two mobile version](https://chikadim.github.io/quiztime/md_images/wireframes-mobile-version-two.png)
+
