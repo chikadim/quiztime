@@ -9,6 +9,13 @@ const resultBox = document.querySelector('.result-box');
 const homeButton = document.querySelector('.home-btn');
 const resultHomeButton = document.querySelector('.result-home-btn');
 const tryAgainButton = document.querySelector('.try-again-btn');
+const usernameInput = document.querySelector('.username-input');
+const signUp = document.querySelector('.sign-up');
+const signIn = document.querySelector('.sign-in');
+const userInput = document.querySelector('.user-input');
+const userNameBtn = document.querySelector('.username-btn');
+const user = document.querySelector('.user');
+
 
 startButton.onclick = () => {
     instruction.classList.add('active');
@@ -29,6 +36,40 @@ playNowButton.onclick = () => {
     showQuestions(0);
     questionCounter(1);
     scoreCount();
+}
+
+signUp.onclick = () => {
+    quizBox.classList.remove('active');
+    usernameInput.classList.add('active');
+    mainSection.classList.add('active');
+    resultBox.classList.remove('active');
+    
+}
+
+signIn.onclick = () => {
+    quizBox.classList.remove('active');
+    resultBox.classList.remove('active');
+    usernameInput.classList.add('active');
+    mainSection.classList.add('active');
+}
+
+userNameBtn.onclick = () => {
+    console.log(userInput.value);
+    usernameInput.classList.remove('active');
+    mainSection.classList.remove('active');
+    quizSection.classList.add('active');
+    quizBox.classList.add('active');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
+    
+    scoreCount();
+
+    user.textContent = userInput.value;
 }
 
 let questionCount = 0;
