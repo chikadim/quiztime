@@ -7,6 +7,9 @@ const quizSection = document.querySelector('.quiz-section');
 const welcomeText = document.querySelector('.welcome-text');
 const quizBox = document.querySelector('.quiz-box');
 const resultBox = document.querySelector('.result-box');
+const homeButton = document.querySelector('.home-btn');
+const resultHomeButton = document.querySelector('.result-home-btn');
+const tryAgainButton = document.querySelector('.try-again-btn');
 
 startButton.onclick = () => {
     instruction.classList.add('active');
@@ -46,6 +49,31 @@ nextButton.onclick = () => {
     else {
         showResultBox();
     }
+}
+
+homeButton.onclick = () => {
+    quizSection.classList.remove('active');
+}
+
+resultHomeButton.onclick = () => {
+    quizSection.classList.remove('active');
+    quizBox.classList.remove('active');
+    resultBox.classList.remove('active');
+}
+
+tryAgainButton.onclick = () => {
+    quizSection.classList.add('active');
+    quizBox.classList.add('active');
+    resultBox.classList.remove('active');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
+    
+    scoreCount();
 }
 
 const answerOptionsTop = document.querySelector('.top');
@@ -134,4 +162,3 @@ function showResultBox() {
         }
     }, speed);
 }
-    

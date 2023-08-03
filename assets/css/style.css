@@ -340,7 +340,7 @@ body {
     background-color: #8c493e;
 }
 
-.skip-block {
+.footer-block {
     background-color: #F3EED9;
     margin-top: 20px;
     display: flex;
@@ -349,16 +349,21 @@ body {
     border-radius: 6px;
 }
 
-.skip-block button {
+.footer-block .btn {
     padding: 12px 0;
     width: 220px;
     background-color: #59201B;
     color: #f5e4e5;
     border-radius: 6px;
-    cursor: pointer;
     transition: .3s;
 }
-.skip-block button:hover {
+
+.footer-block .home-btn {
+    background-color: #59201B;
+    cursor: pointer;
+}
+
+.footer-block .home-btn:hover {
     background-color: #8c493e;
 }
 
