@@ -15,6 +15,7 @@ const signIn = document.querySelector('.sign-in');
 const userInput = document.querySelector('.user-input');
 const userNameBtn = document.querySelector('.username-btn');
 const user = document.querySelector('.user');
+const nextButton = document.querySelector('.next-button');
 
 
 startButton.onclick = () => {
@@ -54,7 +55,6 @@ signIn.onclick = () => {
 }
 
 userNameBtn.onclick = () => {
-    console.log(userInput.value);
     usernameInput.classList.remove('active');
     mainSection.classList.remove('active');
     quizSection.classList.add('active');
@@ -76,8 +76,6 @@ let questionCount = 0;
 let questionNumb = 1;
 let userScore = 0;
 
-const nextButton = document.querySelector('.next-button');
-
 nextButton.onclick = () => {
     if (questionCount < questions.length - 1) {
         questionCount++;
@@ -85,6 +83,8 @@ nextButton.onclick = () => {
 
         questionNumb++;
         questionCounter(questionNumb);
+
+        nextButton.classList.remove('active');
     }
     else {
         showResultBox();
@@ -168,6 +168,8 @@ function optionSelected(answer) {
         answerOptionsTop.children[i].classList.add('disabled');
         answerOptionsBelow.children[i].classList.add('disabled');
     }
+
+    nextButton.classList.add('active');
 }
 
 function questionCounter(index) {
@@ -195,7 +197,6 @@ function showResultBox() {
     let progress = setInterval(() => {
         progressStartValue++;
 
-        //console.log(progressStartValue);
         progressValue.textContent = `${progressStartValue}%`;
         if (progressStartValue == progressEndValue) {
             clearInterval(progress);

@@ -392,22 +392,27 @@ body {
 }
 
 .answer-options span:hover{
-    background-color: #8c493e;
+    background-color: #59201B;
     color:#F3EED9;
 }
 
-.answer-block button {
-    background-color: #59201B;
+.answer-block .next-button {
+    background-color: #8c493e;
     color:#f5e4e5;
     letter-spacing: 2px;
     padding: 12px 0;
     border-radius: 6px;
     cursor: pointer;
     transition: .3s;
-
+    pointer-events: none;
 }
 
-.answer-block button:hover {
+.answer-block .next-button.active {
+    pointer-events: auto;
+    background-color: #59201B;
+}
+
+.answer-block .next-button.active:hover {
     background-color: #8c493e;
 }
 
