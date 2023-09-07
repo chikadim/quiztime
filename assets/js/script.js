@@ -190,8 +190,9 @@ function showResultBox() {
     resultScoreText.textContent = `You got ${userScore} / ${questions.length}`
 
     const progressValue = document.querySelector('.progress-value');
-    let progressStartValue = 0;
+    let progressStartValue = -1;
     let progressEndValue = (userScore / questions.length) * 100;
+
     let speed = 20;
 
     let progress = setInterval(() => {
