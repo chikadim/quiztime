@@ -11,16 +11,6 @@
     font-family: 'Averia Serif Libre', cursive;
 }
 
-html {
-    overflow: auto;
-}
-
-body {
-    color:#f5e4e5;
-    background-color: #59201B;
-    overflow: hidden;
-}
-
 .header {
     background-color: transparent;
     position: fixed;
@@ -63,13 +53,11 @@ body {
 }
 
 .main-section {
-    background: url('../imgs/background-img.webp') no-repeat;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    pointer-events: auto;
     transition: .3s ease;
-
+    background: url(../imgs/background-img.webp) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
 }
 
 .main-section.active {
@@ -77,19 +65,18 @@ body {
     pointer-events: none;
 }
 
-.container {
-    display: flex;
-    height: 100vh;
-    width: 200%;
-}
 
 .welcome-text {
-    position: relative;
-    left: -50%;
+    color:#f5e4e5;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+}
+
+.welcome-text.active {
+    display: none;
 }
 
 .welcome-text-content {
@@ -103,6 +90,7 @@ body {
     font-size: 60px;
     font-family: 'Nunito', sans-serif;
     color: #F3EED9;
+    text-align: center;
 }
 
 .welcome-text-content .start-button {
@@ -126,7 +114,7 @@ body {
 
 .instruction {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(.9);
     border-radius: 6px;
@@ -259,15 +247,11 @@ body {
 }
 
 .quiz-section {
-    position: relative;
-    left: -50%;
-    /*left: 0;*/
     width: 100%;
-    display: flex;
+    height: 100vh;
+    display: none;
     justify-content: center;
-    background: url('../imgs/background-img.webp') no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color: #8c493e;
     transition: .8s ease-in-out;
     transition-delay: .25s;
     z-index: 100;
@@ -275,11 +259,11 @@ body {
 }
 
 .quiz-section.active {
+    display: flex;
     left: 0;
 }
 
 .quiz-section .quiz-box {
-    position: relative;
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -288,6 +272,7 @@ body {
     transform: scale(.9);
     transition: .3s ease;
     transition-delay: 0s;
+    padding-bottom: 150px;
 }
 
 .quiz-section .quiz-box.active {
@@ -515,14 +500,18 @@ body {
 media query (max-width: 768) starts
 **/
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
+
     .header {
+        position: absolute;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
-        padding: 40px 0%;
+        z-index: 200;
+        padding: 40px 10%;
+    
     }
 
     .logo {
@@ -537,6 +526,10 @@ media query (max-width: 768) starts
         padding: 10px 52px;
     }
 
+    .welcome-text {
+        padding: 0px 20px;
+    }
+
     .welcome-text-content {
         max-width: 480px;
         text-align: center;
@@ -544,6 +537,8 @@ media query (max-width: 768) starts
     
     .welcome-text-content h1 {
         font-size: 40px;
+        padding-bottom: 30px;
+        padding-top: 100px;
     }
 
     .welcome-text-content p:nth-child(4) {
@@ -556,6 +551,12 @@ media query (max-width: 768) starts
     
     .welcome-text-content .start-button {
         width: 285px;
+    }
+
+    .quiz-section {
+        width: 100%;
+        height: 100%;
+        padding-top: 180px;
     }
 
     .quiz-section .quiz-box {
@@ -592,6 +593,15 @@ media query (max-width: 768) starts
         width: 300px;
     }
 
+    .score-text-container {
+        color:#59201B;
+        margin-top: 50px;
+    }
+
+    .result-box {
+        margin-top: 100px;
+    }
+
     .result-box .buttons {
         flex-direction: column;
         justify-content: center;
@@ -614,7 +624,7 @@ media query (max-width: 768) ends
 media query (max-width: 320) starts
 **/
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 414px) {
 
     .logo {
         align-items: center;
@@ -628,19 +638,13 @@ media query (max-width: 320) starts
         padding: 10px 32px;
     }
 
-    .container {
-        display: flex;
-        width: 200%;
-    }
-
     .welcome-text-content {
         max-width: 300px;
         text-align: center;
     }
     
     .welcome-text-content h1 {
-        font-size: 26px;
-        margin-bottom: 16px;
+        font-size: 30px;
     }
 
     .welcome-text-content p {
@@ -651,11 +655,13 @@ media query (max-width: 320) starts
         width: 285px;
     }
 
-
-
     .instruction {
         top: 50%;
         width: 300px;
         padding: 0px 10px;
+    }
+
+    .result-box {
+        margin-top: 150px;
     }
 } 

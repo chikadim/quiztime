@@ -16,11 +16,13 @@ const userInput = document.querySelector('.user-input');
 const userNameBtn = document.querySelector('.username-btn');
 const user = document.querySelector('.user');
 const nextButton = document.querySelector('.next-button');
+const welcomeText = document.querySelector('.welcome-text');
 
 
 startButton.onclick = () => {
     instruction.classList.add('active');
     mainSection.classList.add('active');
+    welcomeText.classList.add('active');
 }
 
 quitButton.onclick = () => {
@@ -40,6 +42,7 @@ playNowButton.onclick = () => {
 }
 
 signUp.onclick = () => {
+    welcomeText.classList.add('active');
     quizBox.classList.remove('active');
     usernameInput.classList.add('active');
     mainSection.classList.add('active');
@@ -48,6 +51,7 @@ signUp.onclick = () => {
 }
 
 signIn.onclick = () => {
+    welcomeText.classList.add('active');
     quizBox.classList.remove('active');
     resultBox.classList.remove('active');
     usernameInput.classList.add('active');
@@ -93,6 +97,8 @@ nextButton.onclick = () => {
 
 homeButton.onclick = () => {
     quizSection.classList.remove('active');
+    welcomeText.classList.remove('active');
+
 }
 
 resultHomeButton.onclick = () => {
