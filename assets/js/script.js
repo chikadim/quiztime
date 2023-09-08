@@ -9,11 +9,12 @@ const resultBox = document.querySelector('.result-box');
 const homeButton = document.querySelector('.home-btn');
 const resultHomeButton = document.querySelector('.result-home-btn');
 const tryAgainButton = document.querySelector('.try-again-btn');
-const usernameInput = document.querySelector('.username-input');
+const registerUser = document.querySelector('.register-user');
+const loginUser = document.querySelector('.login-user');
 const signUp = document.querySelector('.sign-up');
 const signIn = document.querySelector('.sign-in');
-const userInput = document.querySelector('.user-input');
-const userNameBtn = document.querySelector('.username-btn');
+const emailInput = document.querySelector('.email-input');
+const registerBtn = document.querySelector('.register-btn');
 const user = document.querySelector('.user');
 const nextButton = document.querySelector('.next-button');
 const welcomeText = document.querySelector('.welcome-text');
@@ -28,6 +29,7 @@ startButton.onclick = () => {
 quitButton.onclick = () => {
     instruction.classList.remove('active');
     mainSection.classList.remove('active');
+    welcomeText.classList.remove('active');
 }
 
 playNowButton.onclick = () => {
@@ -44,7 +46,7 @@ playNowButton.onclick = () => {
 signUp.onclick = () => {
     welcomeText.classList.add('active');
     quizBox.classList.remove('active');
-    usernameInput.classList.add('active');
+    registerUser.classList.add('active');
     mainSection.classList.add('active');
     resultBox.classList.remove('active');
     
@@ -54,12 +56,12 @@ signIn.onclick = () => {
     welcomeText.classList.add('active');
     quizBox.classList.remove('active');
     resultBox.classList.remove('active');
-    usernameInput.classList.add('active');
+    loginUser.classList.add('active');
     mainSection.classList.add('active');
 }
 
-userNameBtn.onclick = () => {
-    usernameInput.classList.remove('active');
+registerBtn.onclick = () => {
+    registerUser.classList.remove('active');
     mainSection.classList.remove('active');
     quizSection.classList.add('active');
     quizBox.classList.add('active');
@@ -73,7 +75,7 @@ userNameBtn.onclick = () => {
     
     scoreCount();
 
-    user.textContent = userInput.value;
+    user.textContent = emailInput.value;
 }
 
 let questionCount = 0;
@@ -105,6 +107,7 @@ resultHomeButton.onclick = () => {
     quizSection.classList.remove('active');
     quizBox.classList.remove('active');
     resultBox.classList.remove('active');
+    welcomeText.classList.remove('active');
 }
 
 tryAgainButton.onclick = () => {

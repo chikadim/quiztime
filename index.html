@@ -23,15 +23,26 @@
         </header>
 
         <div class="container">
+            <section class="welcome-text">
+                <div class="welcome-text-content">
+                    <h1>Welcome to QuizTime</h1>
+                    <p>Your knowledge is your strength. </p>
+                    <p>QuizTime provides you the platform to test or increase your knowledge about various topics</p>
+                    <p>Made with love for everyone in respective of your background and level of awareness.</p>
+                    <p>Fun, Entertaining, Educational and Challenging</p>
+                    <button class="start-button">Start Quiz</button>
+                </div>
+            </section> 
+
             <section class="quiz-section">
                 <div class="quiz-box">
                     <div class="user-block">
-                        <span class="user">Jane Doe</span>
+                        <span class="user">Guest</span>
                         <span class="user-score">0/5</span>
                     </div>
 
                     <div class="category-block">
-                        <h1>Select a category</h1>
+                        <h2>Select a category</h2>
                         <div class="categories">
                             <span>General Knowledge</span>
                             <span><i class="fa-solid fa-chevron-down"></i></span>
@@ -77,17 +88,6 @@
                     </div>
                 </div>
             </section>
-
-            <section class="welcome-text">
-                <div class="welcome-text-content">
-                    <h1>Welcome to QuizTime</h1>
-                    <p>Your knowledge is your strength. </p>
-                    <p>QuizTime provides you the platform to test or increase your knowledge about various topics</p>
-                    <p>Made with love for everyone in respective of your background and level of awareness.</p>
-                    <p>Fun, Entertaining, Educational and Challenging</p>
-                    <button class="start-button">Start Quiz</button>
-                </div>
-            </section> 
         </div>
     </main>
 
@@ -110,13 +110,36 @@
         </div>
     </div>
 
-    <div class="username-input">
-        <div class="username-input-inner">
-            <h2>Enter a username</h2>
+    <div class="register-user">
+        <h3>Sign Up</h3>
+        <div class="register-user-inner">
             <div class="input-container">
-                <label>Enter name:</label>
-                <input type="text" class="user-input" id="username" name="username" autocomplete="off" required>
-                <button class="username-btn">Enter</button>
+                <form action="">
+                    <label for="email"></label>
+                    <input type="text" class="email-input" id="email" name="email" autocomplete="off" placeholder="Email">
+
+                    <label for="password"></label>
+                    <input type="password" class="password-input" id="password" name="password" autocomplete="off" placeholder="Password">
+
+                    <button class="register-btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-user">
+        <h3>Sign In</h3>
+        <div class="login-user-inner">
+            <div class="input-container">
+                <form action="">
+                    <label for="email"></label>
+                    <input type="text" class="email-input" id="email" name="email" autocomplete="off" placeholder="Email">
+
+                    <label for="password"></label>
+                    <input type="password" class="password-input" id="password" name="password" autocomplete="off" placeholder="Password">
+
+                    <button class="login-btn">Sign In</button>
+                </form>
             </div>
         </div>
     </div>
