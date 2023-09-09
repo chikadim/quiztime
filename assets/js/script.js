@@ -13,11 +13,12 @@ const registerUser = document.querySelector('.register-user');
 const loginUser = document.querySelector('.login-user');
 const signUp = document.querySelector('.sign-up');
 const signIn = document.querySelector('.sign-in');
-const emailInput = document.querySelector('.email-input');
 const registerBtn = document.querySelector('.register-btn');
 const user = document.querySelector('.user');
 const nextButton = document.querySelector('.next-button');
 const welcomeText = document.querySelector('.welcome-text');
+
+const form = document.querySelector('.register-form');
 
 
 startButton.onclick = () => {
@@ -55,12 +56,12 @@ signUp.onclick = () => {
 signIn.onclick = () => {
     welcomeText.classList.add('active');
     quizBox.classList.remove('active');
-    resultBox.classList.remove('active');
     loginUser.classList.add('active');
     mainSection.classList.add('active');
+    resultBox.classList.remove('active');
 }
 
-registerBtn.onclick = () => {
+/*registerBtn.onclick = () => {
     registerUser.classList.remove('active');
     mainSection.classList.remove('active');
     quizSection.classList.add('active');
@@ -76,7 +77,108 @@ registerBtn.onclick = () => {
     scoreCount();
 
     user.textContent = emailInput.value;
+}*/
+
+form.addEventListener('submit', (e) => {
+    
+    validateForm();
+    
+    if (isFormValid() == True) {
+        form.submit();
+    } else {
+        e.preventDefault(); 
+    }
+})
+
+/*========================================
+This function checks if the data entered
+in the inputs are valid. If they are valid,
+it returns true when called.
+=========================================*/
+function isFormValid() {
+    const inputContainers = form.querySelectorAll('.input-group');
+    let result = true;
+    inputContainers.forEach((container) => {
+        if (container.classList.contains('error')) {
+            result = false;
+        }
+    });
+
+    return result;
 }
+
+/*=========================================
+This function validates the form inputs
+==========================================*/
+function validateForm() {
+    // Validate Name
+    const nameInput = document.querySelector('.name-input');
+    if(nameInput.value.trim() == '') {
+        setError(nameInput, 'Name cannot be empty');
+    } else if(nameInput.value.trim().length < 2  || nameInput.value.trim().length > 15) {
+        setError(nameInput, 'Name must be Min 2 and Max 15 characters');
+    } else {
+        setSuccess(nameInput);
+    }
+
+    //Validate Email
+    const emailInput = document.querySelector('.email-input');
+    if(emailInput.value.trim() == '') {
+        setError(emailInput, 'Email cannot be empty');
+    } else if(isValidEmail(emailInput.value)) {
+        setSuccess(emailInput);
+    } else {
+        setError(emailInput, 'Provide valid Email address');
+    }
+
+    //Validate Password
+    const passwordInput = document.querySelector('.password-input');
+    if(passwordInput.value.trim() == '') {
+        setError(passwordInput, 'Password cannot be empty');
+    } else if(passwordInput.value.trim().length < 6 || passwordInput.value.trim().length > 20) {
+        setError(passwordInput, 'Pasword must be Min 6 and Max 20 characters');
+    } else {
+        setSuccess(passwordInput);
+    }
+}
+
+/*=========================================
+This function indicates the error message
+when the user enters an invalid name
+==========================================*/
+function setError(element, errorMessage) {
+    const parent = element.parentElement;
+    if(parent.classList.contains('success')) {
+        parent.classList.remove('success');
+    }
+    parent.classList.add('error');
+
+    const paragraph = parent.querySelector('p');
+    paragraph.textContent = errorMessage;
+}
+
+/*========================================
+This function indicates success when the user
+enters a valid name
+========================================*/
+function setSuccess(element) {
+    const parent = element.parentElement;
+    if(parent.classList.contains('error')) {
+        parent.classList.remove('error');
+    }
+    parent.classList.add('success');
+}
+
+/*========================================
+This function checks if the inputted email
+is a valid email address
+========================================*/
+function isValidEmail(email) {
+    const reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    return reg.test(email);
+}
+
+
 
 let questionCount = 0;
 let questionNumb = 1;

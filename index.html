@@ -114,14 +114,32 @@
         <h3>Sign Up</h3>
         <div class="register-user-inner">
             <div class="input-container">
-                <form action="">
-                    <label for="email"></label>
-                    <input type="text" class="email-input" id="email" name="email" autocomplete="off" placeholder="Email">
+                <form action="" method="GET" class="register-form">
+                    <div class="input-group">
+                        <label for="name"></label>
+                        <input type="text" class="name-input" id="name" name="name" autocomplete="off" placeholder="Name">
+                        <p>Error Message</p>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
 
-                    <label for="password"></label>
-                    <input type="password" class="password-input" id="password" name="password" autocomplete="off" placeholder="Password">
+                    <div class="input-group">
+                        <label for="register-email"></label>
+                        <input type="email" class="email-input" id="register-email" name="email" autocomplete="off" placeholder="Email">
+                        <p>Error Message</p>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
 
-                    <button class="register-btn">Sign Up</button>
+                    <div class="input-group">
+                        <label for="register-password"></label>
+                        <input type="password" class="password-input" id="register-password" name="password" autocomplete="off" placeholder="Password">
+                        <p>Error Message</p>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    
+                    <button type="submit" class="register-btn">Sign Up</button>
                 </form>
             </div>
         </div>
@@ -131,14 +149,24 @@
         <h3>Sign In</h3>
         <div class="login-user-inner">
             <div class="input-container">
-                <form action="">
-                    <label for="email"></label>
-                    <input type="text" class="email-input" id="email" name="email" autocomplete="off" placeholder="Email">
+                <form action="" class="register-form">
+                    <div class="input-group">
+                        <label for="login-email"></label>
+                        <input type="email" class="email-input" id="login-email" name="email" autocomplete="off" placeholder="Email">
+                        <p>Error Message</p>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
 
-                    <label for="password"></label>
-                    <input type="password" class="password-input" id="password" name="password" autocomplete="off" placeholder="Password">
-
-                    <button class="login-btn">Sign In</button>
+                    <div class="input-group">
+                        <label for="login-password"></label>
+                        <input type="password" class="password-input" id="login-password" name="password" autocomplete="off" placeholder="Password">
+                        <p>Error Message</p>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">Sign In</button>
                 </form>
             </div>
         </div>
