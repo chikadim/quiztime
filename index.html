@@ -19,6 +19,7 @@
             <nav class="navbar">
                 <a href="#" class="sign-up">Sign Up</a>
                 <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="sign-out">Sign Out</a>
             </nav>
         </header>
 
@@ -111,10 +112,15 @@
     </div>
 
     <div class="register-user">
-        <h3>Sign Up</h3>
+        <div class="title-and-close">
+            <h3>Sign Up</h3>
+            <i class="fa-solid fa-xmark register-form-close-btn"></i>
+        </div>
+        
+        
         <div class="register-user-inner">
             <div class="input-container">
-                <form action="" method="GET" class="register-form">
+                <form class="register-form">
                     <div class="input-group">
                         <label for="name"></label>
                         <input type="text" class="name-input" id="name" name="name" autocomplete="off" placeholder="Name">
@@ -146,13 +152,17 @@
     </div>
 
     <div class="login-user">
-        <h3>Sign In</h3>
+        <div class="title-and-close">
+            <h3>Sign In</h3>
+            <i class="fa-solid fa-xmark login-form-close-btn"></i>
+        </div>
+        
         <div class="login-user-inner">
             <div class="input-container">
-                <form action="" class="register-form">
+                <form class="login-form">
                     <div class="input-group">
                         <label for="login-email"></label>
-                        <input type="email" class="email-input" id="login-email" name="email" autocomplete="off" placeholder="Email">
+                        <input type="email" class="email-input check-email" id="login-email" name="email" autocomplete="off" placeholder="Email">
                         <p>Error Message</p>
                         <i class="fa-solid fa-circle-check"></i>
                         <i class="fa-solid fa-circle-exclamation"></i>
@@ -160,7 +170,7 @@
 
                     <div class="input-group">
                         <label for="login-password"></label>
-                        <input type="password" class="password-input" id="login-password" name="password" autocomplete="off" placeholder="Password">
+                        <input type="password" class="password-input check-password" id="login-password" name="password" autocomplete="off" placeholder="Password">
                         <p>Error Message</p>
                         <i class="fa-solid fa-circle-check"></i>
                         <i class="fa-solid fa-circle-exclamation"></i>

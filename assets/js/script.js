@@ -13,12 +13,20 @@ const registerUser = document.querySelector('.register-user');
 const loginUser = document.querySelector('.login-user');
 const signUp = document.querySelector('.sign-up');
 const signIn = document.querySelector('.sign-in');
+const signOut = document.querySelector('.sign-out');
 const registerBtn = document.querySelector('.register-btn');
 const user = document.querySelector('.user');
 const nextButton = document.querySelector('.next-button');
 const welcomeText = document.querySelector('.welcome-text');
 
-const form = document.querySelector('.register-form');
+const registerForm = document.querySelector('.register-form');
+const loginForm = document.querySelector('.login-form');
+const nameInput = document.querySelector('.name-input');
+const registerFormcloseBtn = document.querySelector('.register-form-close-btn');
+const loginFormCloseBtn = document.querySelector('.login-form-close-btn');
+const loginBtn = document.querySelector('.login-btn');
+const checkEmail = document.querySelector('.check-email');
+
 
 
 startButton.onclick = () => {
@@ -31,6 +39,20 @@ quitButton.onclick = () => {
     instruction.classList.remove('active');
     mainSection.classList.remove('active');
     welcomeText.classList.remove('active');
+
+    window.location.reload();
+}
+
+signOut.onclick = () => {
+    instruction.classList.remove('active');
+    mainSection.classList.remove('active');
+    welcomeText.classList.remove('active');
+
+    signOut.classList.remove('active');
+    signIn.classList.remove('active');
+    signUp.classList.remove('active');
+
+    window.location.reload();
 }
 
 playNowButton.onclick = () => {
@@ -51,6 +73,22 @@ signUp.onclick = () => {
     mainSection.classList.add('active');
     resultBox.classList.remove('active');
     
+}
+
+registerFormcloseBtn.onclick = () => {
+    registerUser.classList.remove('active');
+    mainSection.classList.remove('active');
+    welcomeText.classList.remove('active');
+
+    window.location.reload();
+}
+
+loginFormCloseBtn.onclick = () => {
+    loginUser.classList.remove('active');
+    mainSection.classList.remove('active');
+    welcomeText.classList.remove('active');
+
+    window.location.reload();
 }
 
 signIn.onclick = () => {
@@ -79,14 +117,64 @@ signIn.onclick = () => {
     user.textContent = emailInput.value;
 }*/
 
-form.addEventListener('submit', (e) => {
+
+registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    validateRegisterForm();
     
-    validateForm();
-    
-    if (isFormValid() == True) {
-        form.submit();
+    if (isFormValid() == true) {
+        registerUser.classList.remove('active');
+        mainSection.classList.remove('active');
+        quizSection.classList.add('active');
+        quizBox.classList.add('active');
+        signUp.classList.add('active');
+        signIn.classList.add('active');
+        signOut.classList.add('active');
+
+
+        questionCount = 0;
+        questionNumb = 1;
+        userScore = 0;
+
+        showQuestions(questionCount);
+        questionCounter(questionNumb);
+        
+        scoreCount();
+
+        user.textContent = nameInput.value;
     } else {
-        e.preventDefault(); 
+        e.preventDefault();
+    }
+})
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    validateLoginForm();
+
+    if (isLoginFormValid() == true) {
+        loginUser.classList.remove('active');
+        mainSection.classList.remove('active');
+        quizSection.classList.add('active');
+        quizBox.classList.add('active');
+        signUp.classList.add('active');
+        signIn.classList.add('active');
+        signOut.classList.add('active');
+
+
+        questionCount = 0;
+        questionNumb = 1;
+        userScore = 0;
+
+        showQuestions(questionCount);
+        questionCounter(questionNumb);
+        
+        scoreCount();
+
+        user.textContent = checkEmail.value;
+    } else {
+        e.preventDefault();
     }
 })
 
@@ -96,7 +184,19 @@ in the inputs are valid. If they are valid,
 it returns true when called.
 =========================================*/
 function isFormValid() {
-    const inputContainers = form.querySelectorAll('.input-group');
+    const inputContainers = registerForm.querySelectorAll('.input-group');
+    let result = true;
+    inputContainers.forEach((container) => {
+        if (container.classList.contains('error')) {
+            result = false;
+        }
+    });
+
+    return result;
+}
+
+function isLoginFormValid() {
+    const inputContainers = loginForm.querySelectorAll('.input-group');
     let result = true;
     inputContainers.forEach((container) => {
         if (container.classList.contains('error')) {
@@ -110,7 +210,7 @@ function isFormValid() {
 /*=========================================
 This function validates the form inputs
 ==========================================*/
-function validateForm() {
+function validateRegisterForm() {
     // Validate Name
     const nameInput = document.querySelector('.name-input');
     if(nameInput.value.trim() == '') {
@@ -139,6 +239,27 @@ function validateForm() {
         setError(passwordInput, 'Pasword must be Min 6 and Max 20 characters');
     } else {
         setSuccess(passwordInput);
+    }
+}
+
+function validateLoginForm() {
+    //Validate Email
+    if(checkEmail.value.trim() == '') {
+        setError(checkEmail, 'Email cannot be empty');
+    } else if(isValidEmail(checkEmail.value)) {
+        setSuccess(checkEmail);
+    } else {
+        setError(checkEmail, 'Provide valid Email address');
+    }
+
+    //Validate Password
+    const checkPassword = document.querySelector('.check-password');
+    if(checkPassword.value.trim() == '') {
+        setError(checkPassword, 'Password cannot be empty');
+    } else if(checkPassword.value.trim().length < 6 || checkPassword.value.trim().length > 20) {
+        setError(checkPassword, 'Pasword must be Min 6 and Max 20 characters');
+    } else {
+        setSuccess(checkPassword);
     }
 }
 
@@ -177,7 +298,6 @@ function isValidEmail(email) {
     const reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return reg.test(email);
 }
-
 
 
 let questionCount = 0;

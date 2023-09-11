@@ -24,6 +24,23 @@
     padding: 40px 10%;
 }
 
+.navbar.active {
+    visibility: hidden;
+    background-color: blueviolet;
+}
+
+.sign-up.active, .sign-in.active {
+    display: none;
+}
+
+.sign-out {
+    display: none;
+}
+
+.sign-out.active {
+    display: block;
+}
+
 .logo {
     font-size: 22px;
     color: #F3EED9;
@@ -202,6 +219,19 @@
     margin-bottom: 30px;
 }
 
+.title-and-close {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-and-close i.fa-xmark{
+    color:#59201B;
+    font-size: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    
+}
+
 .register-user-inner {
     display: flex;
     flex-direction: column;
@@ -343,7 +373,7 @@
     width: 100%;
 }
 
-.login-user-inner .register-form {
+.login-user-inner .login-form {
     width: 100%;
 }
 
@@ -355,15 +385,44 @@
     margin-top: 15px;
 }
 
-.login-user-inner .register-form {
+.login-user-inner .success input {
+    border: 2px solid green;
+}
+
+.login-user-inner .success i.fa-circle-check {
+    visibility: visible;
+    color: green;
+}
+
+.login-user-inner .error input {
+    border: 2px solid red;
+}
+
+.login-user-inner .error i.fa-circle-exclamation {
+    visibility: visible;
+    color: red;
+}
+
+.login-user-inner .input-group {
     position: relative;
 }
 
-.login-user-inner .register-form i {
+.login-user-inner .input-group p {
+    color: red;
+    visibility: hidden;
+}
+
+.login-user-inner .error p {
+    visibility: visible;
+}
+
+.login-user-inner .input-group i {
     position: absolute;
     right: 10px;
     top: 29px;
+    visibility: hidden;
 }
+
 
 .login-user-inner .name-input {
     width: 100%;
