@@ -27,6 +27,8 @@ const loginFormCloseBtn = document.querySelector('.login-form-close-btn');
 const loginBtn = document.querySelector('.login-btn');
 const checkEmail = document.querySelector('.check-email');
 
+const categoriesArea = document.querySelector('.categories-area');
+
 
 
 startButton.onclick = () => {
@@ -61,9 +63,30 @@ playNowButton.onclick = () => {
     mainSection.classList.remove('active');
     quizBox.classList.add('active');
 
-    showQuestions(0);
-    questionCounter(1);
-    scoreCount();
+    //loadGenKnowledge(0);
+    //questionCounter(1);
+    //scoreCount();
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+
+    let getInitialCategory = initialCategory.textContent;
+
+    if (getInitialCategory == 'General Knowledge') {
+        loadGenKnowledge(questionCount);
+        questionCounter(questionNumb);
+    
+        scoreCount();
+
+    } else if (getInitialCategory == 'Sports') {
+        loadSports(questionCount);
+
+        questionCounter(questionNumb);
+    
+        scoreCount();
+
+    }
 }
 
 signUp.onclick = () => {
@@ -99,31 +122,17 @@ signIn.onclick = () => {
     resultBox.classList.remove('active');
 }
 
-/*registerBtn.onclick = () => {
-    registerUser.classList.remove('active');
-    mainSection.classList.remove('active');
-    quizSection.classList.add('active');
-    quizBox.classList.add('active');
-
-    questionCount = 0;
-    questionNumb = 1;
-    userScore = 0;
-
-    showQuestions(questionCount);
-    questionCounter(questionNumb);
-    
-    scoreCount();
-
-    user.textContent = emailInput.value;
-}*/
-
+categoriesArea.onclick = () => {
+    showCategory(questionCount);
+    categorySelected();
+}
 
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     validateRegisterForm();
     
-    if (isFormValid() == true) {
+    if (isRegisterFormValid() == true) {
         registerUser.classList.remove('active');
         mainSection.classList.remove('active');
         quizSection.classList.add('active');
@@ -137,7 +146,7 @@ registerForm.addEventListener('submit', (e) => {
         questionNumb = 1;
         userScore = 0;
 
-        showQuestions(questionCount);
+        loadGenKnowledge(questionCount);
         questionCounter(questionNumb);
         
         scoreCount();
@@ -167,23 +176,25 @@ loginForm.addEventListener('submit', (e) => {
         questionNumb = 1;
         userScore = 0;
 
-        showQuestions(questionCount);
+        loadGenKnowledge(questionCount);
+
         questionCounter(questionNumb);
         
         scoreCount();
 
         user.textContent = checkEmail.value;
+        
     } else {
         e.preventDefault();
     }
 })
 
-/*========================================
-This function checks if the data entered
-in the inputs are valid. If they are valid,
-it returns true when called.
-=========================================*/
-function isFormValid() {
+/*
+ *This function checks if the data entered
+ *in the inputs are valid. If they are valid,
+ *it returns true when called.
+ */
+function isRegisterFormValid() {
     const inputContainers = registerForm.querySelectorAll('.input-group');
     let result = true;
     inputContainers.forEach((container) => {
@@ -207,11 +218,11 @@ function isLoginFormValid() {
     return result;
 }
 
-/*=========================================
-This function validates the form inputs
-==========================================*/
+/*
+ *   This function validates the form register form
+ */
 function validateRegisterForm() {
-    // Validate Name
+    // Validates name input
     const nameInput = document.querySelector('.name-input');
     if(nameInput.value.trim() == '') {
         setError(nameInput, 'Name cannot be empty');
@@ -221,7 +232,7 @@ function validateRegisterForm() {
         setSuccess(nameInput);
     }
 
-    //Validate Email
+    //Validates email input
     const emailInput = document.querySelector('.email-input');
     if(emailInput.value.trim() == '') {
         setError(emailInput, 'Email cannot be empty');
@@ -231,7 +242,7 @@ function validateRegisterForm() {
         setError(emailInput, 'Provide valid Email address');
     }
 
-    //Validate Password
+    //Validates password input
     const passwordInput = document.querySelector('.password-input');
     if(passwordInput.value.trim() == '') {
         setError(passwordInput, 'Password cannot be empty');
@@ -242,8 +253,11 @@ function validateRegisterForm() {
     }
 }
 
+/*
+ *   This function validates the form inputs
+ */
 function validateLoginForm() {
-    //Validate Email
+    //Validates email input
     if(checkEmail.value.trim() == '') {
         setError(checkEmail, 'Email cannot be empty');
     } else if(isValidEmail(checkEmail.value)) {
@@ -252,7 +266,7 @@ function validateLoginForm() {
         setError(checkEmail, 'Provide valid Email address');
     }
 
-    //Validate Password
+    //Validate password input
     const checkPassword = document.querySelector('.check-password');
     if(checkPassword.value.trim() == '') {
         setError(checkPassword, 'Password cannot be empty');
@@ -263,10 +277,10 @@ function validateLoginForm() {
     }
 }
 
-/*=========================================
-This function indicates the error message
-when the user enters an invalid name
-==========================================*/
+/*
+ *   This function indicates the error message
+ *   when the user enters an invalid name
+ */
 function setError(element, errorMessage) {
     const parent = element.parentElement;
     if(parent.classList.contains('success')) {
@@ -278,10 +292,10 @@ function setError(element, errorMessage) {
     paragraph.textContent = errorMessage;
 }
 
-/*========================================
-This function indicates success when the user
-enters a valid name
-========================================*/
+/*
+ *   This function indicates success when the user
+ *   enters a valid name
+ */
 function setSuccess(element) {
     const parent = element.parentElement;
     if(parent.classList.contains('error')) {
@@ -290,29 +304,49 @@ function setSuccess(element) {
     parent.classList.add('success');
 }
 
-/*========================================
-This function checks if the inputted email
-is a valid email address
-========================================*/
+/*
+ *   This function checks if the inputted email
+ *   is a valid email address
+ */
 function isValidEmail(email) {
     const reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return reg.test(email);
 }
 
-
 let questionCount = 0;
 let questionNumb = 1;
 let userScore = 0;
 
+const initialCategory = document.querySelector('.initial-category');
+
+
+/*
+ *   This function loads questions and answers
+ *   belonging to the category that is
+ */
 nextButton.onclick = () => {
-    if (questionCount < questions.length - 1) {
+    let getInitialCategory = initialCategory.textContent;
+    
+    if (getInitialCategory == 'General Knowledge' && questionCount < categories[0].questions.length - 1) {
+
         questionCount++;
-        showQuestions(questionCount);
+        loadGenKnowledge(questionCount);
 
         questionNumb++;
         questionCounter(questionNumb);
 
         nextButton.classList.remove('active');
+
+    } else if (getInitialCategory == 'Sports' && questionCount < categories[1].questions.length - 1) {
+
+        questionCount++;
+        loadSports(questionCount);
+
+        questionNumb++;
+        questionCounter(questionNumb);
+
+        nextButton.classList.remove('active');
+
     }
     else {
         showResultBox();
@@ -322,7 +356,6 @@ nextButton.onclick = () => {
 homeButton.onclick = () => {
     quizSection.classList.remove('active');
     welcomeText.classList.remove('active');
-
 }
 
 resultHomeButton.onclick = () => {
@@ -341,25 +374,40 @@ tryAgainButton.onclick = () => {
     questionNumb = 1;
     userScore = 0;
 
-    showQuestions(questionCount);
-    questionCounter(questionNumb);
+    let getInitialCategory = initialCategory.textContent;
+
+    if (getInitialCategory == 'General Knowledge') {
+        loadGenKnowledge(questionCount);
+        questionCounter(questionNumb);
     
-    scoreCount();
+        scoreCount();
+
+    } else if (getInitialCategory == 'Sports') {
+        loadSports(questionCount);
+
+        questionCounter(questionNumb);
+    
+        scoreCount();
+
+    }
 }
 
 const answerOptionsTop = document.querySelector('.top');
 const answerOptionsBelow = document.querySelector('.below');
 const answerOptions = document.querySelector('.answer-options');
 
-// getting questions and options from array
-function showQuestions(index) {
+/*
+ *   This function loads the questions and 
+ *   answers for general knowledge category
+*/
+function loadGenKnowledge(index) {
     const questionText = document.querySelector('.question-text');
-    questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
+    questionText.textContent = `${categories[0].questions[index].numb}. ${categories[0].questions[index].question}`;
 
-    let optionTop = `<span class="answers">${questions[index].options[0]}</span>
-        <span class="answers">${questions[index].options[1]}</span>`;
-    let optionBelow = `<span class="answers">${questions[index].options[2]}</span>
-        <span class="answers">${questions[index].options[3]}</span>`;
+    let optionTop = `<span class="answers">${categories[0].questions[index].options[0]}</span>
+        <span class="answers">${categories[0].questions[index].options[1]}</span>`;
+    let optionBelow = `<span class="answers">${categories[0].questions[index].options[2]}</span>
+        <span class="answers">${categories[0].questions[index].options[3]}</span>`;
 
     answerOptionsTop.innerHTML = optionTop;
     answerOptionsBelow.innerHTML = optionBelow;
@@ -370,26 +418,138 @@ function showQuestions(index) {
     }
 }
 
+
+/*
+ *   This function loads the questions and 
+ *   answers for sports category
+*/
+function loadSports(index) {
+    const questionText = document.querySelector('.question-text');
+    questionText.textContent = `${categories[1].questions[index].numb}. ${categories[1].questions[index].question}`;
+
+    let optionTop = `<span class="answers">${categories[1].questions[index].options[0]}</span>
+        <span class="answers">${categories[1].questions[index].options[1]}</span>`;
+    let optionBelow = `<span class="answers">${categories[1].questions[index].options[2]}</span>
+        <span class="answers">${categories[1].questions[index].options[3]}</span>`;
+
+    answerOptionsTop.innerHTML = optionTop;
+    answerOptionsBelow.innerHTML = optionBelow;
+
+    const answers = document.querySelectorAll('.answers');
+    for (let i = 0; i < answers.length; i++) {
+        answers[i].setAttribute('onclick', 'optionSelected(this)');
+    }
+}
+
+/*
+ *   This function lists all categories to select from  
+*/
+function showCategory(index) {
+    const rotateAngle = document.querySelector('.rotate');
+
+    rotateAngle.style.transform = 'rotate(-180deg)';
+
+    const categoryList = document.querySelector('.category-list');
+    let categoryNames = `
+    <li class="category-name">${categories[0].category}</li>
+    <li class="category-name">${categories[1].category}</li>`;
+
+    if (categoryList.classList.contains('active')) {
+        rotateAngle.style.transform = 'rotate(0deg)';
+
+        setTimeout(() => {
+            categoryList.innerHTML = '';
+            
+        }, 200);
+
+        categoryList.classList.remove('active');
+    } else {
+        categoryList.classList.add('active');
+        categoryList.innerHTML = categoryNames;
+    }
+}
+
+/*
+ *   This function calls the functios to load
+ *   the category selected
+*/
+function categorySelected() {
+    const categoryList = document.querySelector('.category-list');
+    const categoryName = document.querySelectorAll('.category-name');
+    const initialCategory = document.querySelector('.initial-category');
+    const rotateAngle = document.querySelector('.rotate');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+
+    for (let i = 0; i < categoryName.length; i++) {
+        const listElement = categoryName[i]
+
+        listElement.addEventListener('click', (e) => {
+            const selected = e.target.textContent;
+
+            initialCategory.textContent = selected;
+
+            rotateAngle.style.transform = 'rotate(0deg)';
+
+            if (selected == 'General Knowledge') {
+
+                loadGenKnowledge(questionCount);
+
+            } else if (selected == 'Sports') {
+
+                loadSports(questionCount);   
+            }
+
+
+            categoryList.classList.remove('active');
+
+            setTimeout(() => {
+                categoryList.innerHTML = '';
+
+            }, 200);
+        })
+    }
+}
+
+/*
+ *   This function handles the answers section
+*/
 function optionSelected(answer) {
     let userAnswer = answer.textContent;
-    let correctAnswer = questions[questionCount].answer;
+    let generalKnowledgeCorrectAnswer = categories[0].questions[questionCount].answer;
+    let sportsCorrectAnswer = categories[1].questions[questionCount].answer;
     let allOptions = answerOptions.children.length;
 
+    let getInitialCategory = initialCategory.textContent;
 
-    if (userAnswer == correctAnswer) {
+    if (getInitialCategory == 'General Knowledge' && userAnswer == generalKnowledgeCorrectAnswer) {
         answer.classList.add('correct');
         userScore += 1;
         scoreCount();
+
+    } else if (getInitialCategory == 'Sports' && userAnswer == sportsCorrectAnswer ) {
+        answer.classList.add('correct');
+        userScore += 1;
+        scoreCount();
+
     }
     else {
         answer.classList.add('incorrect');
 
         // if answer incorrect, auto selected correct answer
         for (let i = 0; i < allOptions; i++) {
-            if(answerOptionsTop.children[i].textContent == correctAnswer) {
+            if(answerOptionsTop.children[i].textContent == generalKnowledgeCorrectAnswer) {
                 answerOptionsTop.children[i].setAttribute('class', 'answers correct');
             }
-            else if(answerOptionsBelow.children[i].textContent == correctAnswer) {
+            else if(answerOptionsBelow.children[i].textContent == generalKnowledgeCorrectAnswer) {
+                answerOptionsBelow.children[i].setAttribute('class', 'answers correct');
+            }
+            else if(answerOptionsTop.children[i].textContent == sportsCorrectAnswer) {
+                answerOptionsTop.children[i].setAttribute('class', 'answers correct');
+            }
+            else if(answerOptionsBelow.children[i].textContent == sportsCorrectAnswer) {
                 answerOptionsBelow.children[i].setAttribute('class', 'answers correct');
             }
         }
@@ -403,35 +563,90 @@ function optionSelected(answer) {
     nextButton.classList.add('active');
 }
 
+/*
+ *   This function counts the questions when they
+ *   are selected
+*/
 function questionCounter(index) {
     const questionTotal = document.querySelector('.question-total');
-    questionTotal.textContent = `${index} of ${questions.length} Questions`;
+
+    let getInitialCategory = initialCategory.textContent;
+
+    if (getInitialCategory == 'General Knowledge') {
+        questionTotal.textContent = `${index} of ${categories[0].questions.length} Questions`;
+
+    } else if (getInitialCategory == 'Sports') {
+        questionTotal.textContent = `${index} of ${categories[1].questions.length} Questions`;
+    }
+    
 }
 
+/*
+ *   This function counts the scores for the user  
+*/
 function scoreCount() {
     const scoreText = document.querySelector('.user-score');
-    scoreText.textContent = `${userScore} / ${questions.length}`;
+
+    let getInitialCategory = initialCategory.textContent;
+
+    if (getInitialCategory == 'General Knowledge') {
+        scoreText.textContent = `${userScore} / ${categories[0].questions.length}`;
+
+    } else if (getInitialCategory == 'Sports') {
+        scoreText.textContent = `${userScore} / ${categories[1].questions.length}`;
+
+    }
 }
 
+/*
+ *   This function displays the calculated score
+ *   of the user 
+*/
 function showResultBox() {
     quizBox.classList.remove('active');
     resultBox.classList.add('active');
 
-    const resultScoreText = document.querySelector('.result-score-text');
-    resultScoreText.textContent = `You got ${userScore} / ${questions.length}`
+    let getInitialCategory = initialCategory.textContent;
 
-    const progressValue = document.querySelector('.progress-value');
-    let progressStartValue = -1;
-    let progressEndValue = (userScore / questions.length) * 100;
+    if (getInitialCategory == 'General Knowledge') {
 
-    let speed = 20;
+        const resultScoreText = document.querySelector('.result-score-text');
+        resultScoreText.textContent = `You got ${userScore} / ${categories[0].questions.length}`
 
-    let progress = setInterval(() => {
-        progressStartValue++;
+        const progressValue = document.querySelector('.progress-value');
+        let progressStartValue = -1;
+        let progressEndValue = (userScore / categories[0].questions.length) * 100;
 
-        progressValue.textContent = `${progressStartValue}%`;
-        if (progressStartValue == progressEndValue) {
-            clearInterval(progress);
-        }
-    }, speed);
+        let speed = 20;
+
+        let progress = setInterval(() => {
+            progressStartValue++;
+
+            progressValue.textContent = `${progressStartValue}%`;
+            if (progressStartValue == progressEndValue) {
+                clearInterval(progress);
+            }
+        }, speed);
+
+    } else if (getInitialCategory == 'Sports') {
+
+        const resultScoreText = document.querySelector('.result-score-text');
+        resultScoreText.textContent = `You got ${userScore} / ${categories[1].questions.length}`
+
+        const progressValue = document.querySelector('.progress-value');
+        let progressStartValue = -1;
+        let progressEndValue = (userScore / categories[1].questions.length) * 100;
+
+        let speed = 20;
+
+        let progress = setInterval(() => {
+            progressStartValue++;
+
+            progressValue.textContent = `${progressStartValue}%`;
+            if (progressStartValue == progressEndValue) {
+                clearInterval(progress);
+            }
+        }, speed);
+
+    }
 }
