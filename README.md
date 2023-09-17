@@ -113,33 +113,98 @@ This website consists of 4 pages. They are accessible from navigation menu and a
     * The header is featured in the home page, in the quiz page and in the result page and is fully responsive. It includes the logo and the nav bar. The nav bar consists of the sign up and log in buttons
     ![Header](md_images/header.png)
 
+    * When the user clicks the sign up button, a registration form comes up requesting the user to enter a name, an email and a password.
+    ![Sign up](md_images/sign-up-form.png)
+
+    * The inputs are then verified accordingly.
+    ![Sign up](md_images/validate-sign-up.png)
+
+    * When the user clicks the sign in button, a login form comes up requesting the user to enter an email and a password.
+    ![Sign in](md_images/sign-in-form.png)
+
+    * The inputs are then verified accordingly.
+    ![Sign in](md_images/validate-sign-in.png)
+
+    * When a user enters the correct inputs as required then it indicates success as shown below.
+    ![Validate success](md_images/validate-success.png)
+
 
 - __Instruction page__
   - List of instructions
-    * This contains the instructions or guid on how to play the quiz. The instructions page also has quit and plan now buttons. The quit button takes you back to the home page whereas the instructions page leads you to the quiz page.
-    ![Header](md_images/instruction-page.png)
+    * This contains the instructions or guide on how to play the quiz. The instructions page also has quit and play now buttons. The quit button takes you back to the home page whereas the play now button leads you to the quiz page.
+    ![Instruction](md_images/instruction-page.png)
 
 - __Quiz page__
   - User block
-    * The user block shows the username and score of the player.
+    *At the top of the page, there is a sign out button that signs out the user and returns him/her to the home page.
+    * The user block shows the username or email and score of the player.
+    ![Quiz page](md_images/quiz-page.png)
   - Category block
     * Here, the users select the category they want to play.
-  - Question and answer options block
-    * Here, the users get to see the questions and four answer options from which they can choose the correct answer 
-    ![Mockup](md_images/quiz-page.png)
+    * There are two categories presently. The General knowledge and Sports categories. More categories can be added in the future.
+    ![Quiz page](md_images/show-categories.png)
+  - Questions and answers options block
+    *The questions and answers are loaded based on the category the user selected.
+    * Here, the users get to see the questions and four answer options from which they can choose the correct answer
+    * The user will not be able to move to a next question until an option is selected.
+    * If the wrong answer is selected, then the correct answer will be shown to the user while indicating that the selected answer was wrong as shown below.
+    ![Quiz page](md_images/answer-options.png)
+    * The user can decide to change category, go back to home page or continue to the next question.
 
 - __Result page__
   - The result page shows the score of the users and calculates the percentage.
     * From here the user may decide to go back to the home page or try the game again
+    * The user may also decide to sign out of the game entirely which will take him/her back to the home page
     ![Mockup](md_images/result-page.png)
 
 ## Testing
 
-### Validator testing
-  No error found.
+### Functionality testing
+I used Mozilla web developer tools and Chrome developer tools throughout the project for testing and solving problems with responsiveness and style issues.
+
+[Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) extension to chrome browser was also very helpful.
+
+- Sign up form
+  * The inputs are expected to take information from the user and validate them; 
+  When tested, it took information and successfully validate them.
+  * The sign up button is expected to register the user and navigate the user to the quiz page;
+  When tested it successfully registered the user, navigate the user properly and the inputed email is displayed on the quiz page.
+  * There is a close button that is expected to close the sign up form and takes the user back to the home page;
+  When tested the user was successfully returned to the home page
+
+- Log in form
+  * The inputs are expected to take information from the users, validate the information and log them in; 
+  When tested it did same successfully
+  * The sign in button is expected to take the users to the quiz page;
+  When tested it successfully navigated the user to the quiz page
+  * There is a close button that is expected to close the sign in form and takes the user back to the home page;
+  When tested the user was successfully returned to the home page.
+
+- The quiz page
+  * The select category is expected to display the category options, the questions and answers options are displayed based on the category selected;
+  When clicked it successfully displays the categories and also was able to load the questions and answers according to the category selected.
+  * On this page there is a button that is expected to take a user to the next questions;
+  When clicked it successfully navigates the user to the next questions. This button is only activated when an answer option is selected.
+  * The home button is expected to navigate the user back to the home page.
+  When clicked it did so successfully.
+  * The sign out button is expected to sign out the user and return the user to the home page
+  When tested it successfully navigates the user back to the home page
+
+- The result page
+  * The result page is expected to display the number of correct answers gotten and its equivalent in percentage.
+  When tested it successfully did so
+  * The try again button is expected to take the user back to the category just finished;
+  When tested it successfully takes the user back to replay the category.
+  * The home button is expected to navigate the user back to the home page.
+  When clicked it did so successfully.
+  * The sign out button is expected to sign out the user and return the user to the home page
+  When tested it successfully navigates the user back to the home page
+### Compatibility testing
+Site was tested across multiple virtual mobile devices and browsers. I checked all supported devices in both Mozilla web developer tolls and Chrome developer tools. 
+ 
+I tested on hardware devices such as: Apple and Windows OS's, Lenovo smartphone with Android 7, Google pixel 3 with Android 11.
 
 ## Deployment
-
 The project was deployed on GitHub Pages. I used vscode as a development environment where I commited all changes to git version control system.
 
 To deploy a project I had to:

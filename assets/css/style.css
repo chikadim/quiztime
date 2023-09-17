@@ -26,7 +26,6 @@
 
 .navbar.active {
     visibility: hidden;
-    background-color: blueviolet;
 }
 
 .sign-up.active, .sign-in.active {
@@ -125,7 +124,8 @@
 }
 
 .welcome-text-content .start-button:hover {
-    background-color: #59201B;
+    background-color: #670c03;
+    font-size: 18px;
     color: #F3EED9;
 }
 
@@ -337,7 +337,8 @@
 }
 
 .register-user-inner .register-btn:hover {
-    background-color: #8c493e;
+    background-color: #670c03;
+    font-size: 14px;
 }
 
 .login-user {
@@ -465,7 +466,8 @@
 }
 
 .login-user-inner .login-btn:hover {
-    background-color: #8c493e;
+    background-color: #670c03;
+    font-size: 14px;
 }
 
 .quiz-section {
@@ -757,7 +759,8 @@
 }
 
 .result-box .buttons .btn:hover {
-    background-color: #8c493e;
+    background-color: #670c03;
+    font-size: 14px;
 }
 
 /**

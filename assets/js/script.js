@@ -79,12 +79,16 @@ playNowButton.onclick = () => {
     
         scoreCount();
 
+        nextButton.classList.remove('active');
+
     } else if (getInitialCategory == 'Sports') {
         loadSports(questionCount);
 
         questionCounter(questionNumb);
     
         scoreCount();
+
+        nextButton.classList.remove('active');
 
     }
 }
@@ -239,7 +243,7 @@ function validateRegisterForm() {
     } else if(isValidEmail(emailInput.value)) {
         setSuccess(emailInput);
     } else {
-        setError(emailInput, 'Provide valid Email address');
+        setError(emailInput, 'Provide a valid Email address');
     }
 
     //Validates password input
@@ -247,7 +251,7 @@ function validateRegisterForm() {
     if(passwordInput.value.trim() == '') {
         setError(passwordInput, 'Password cannot be empty');
     } else if(passwordInput.value.trim().length < 6 || passwordInput.value.trim().length > 20) {
-        setError(passwordInput, 'Pasword must be Min 6 and Max 20 characters');
+        setError(passwordInput, 'Min of 6 and Max of 20 characters');
     } else {
         setSuccess(passwordInput);
     }
@@ -263,7 +267,7 @@ function validateLoginForm() {
     } else if(isValidEmail(checkEmail.value)) {
         setSuccess(checkEmail);
     } else {
-        setError(checkEmail, 'Provide valid Email address');
+        setError(checkEmail, 'Provide a valid Email address');
     }
 
     //Validate password input
@@ -271,7 +275,7 @@ function validateLoginForm() {
     if(checkPassword.value.trim() == '') {
         setError(checkPassword, 'Password cannot be empty');
     } else if(checkPassword.value.trim().length < 6 || checkPassword.value.trim().length > 20) {
-        setError(checkPassword, 'Pasword must be Min 6 and Max 20 characters');
+        setError(checkPassword, 'Min of 6 and Max of 20 characters');
     } else {
         setSuccess(checkPassword);
     }
